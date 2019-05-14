@@ -98,9 +98,9 @@ public class necromancerMain : MonoBehaviour {
         if (!scrying && !manager.GetComponent<controller>().paused /*&& !manager.GetComponent<controller>().fadeOut*/) {
 			if (canFire) {
 				MovementInput ();
-                //transform.Translate (direction * walkSpeed * Time.deltaTime);
-            
-				rb.MovePosition (rb.position + direction * walkSpeed * Time.deltaTime);
+                transform.Translate (direction * walkSpeed * Time.deltaTime);
+         
+				//rb.MovePosition (rb.position + direction * walkSpeed * 0.01666667f);
 				AnimateMovement (direction);
 			}
 
@@ -125,12 +125,12 @@ public class necromancerMain : MonoBehaviour {
 			}
 		}
 
-       /* if (manager.GetComponent<controller>().fadeOut)
-        {
-            direction = new Vector2(0, 0);
-            AnimateMovement(direction);
-        }*/
-
+        /* if (manager.GetComponent<controller>().fadeOut)
+         {
+             direction = new Vector2(0, 0);
+             AnimateMovement(direction);
+         }*/
+      
 
     }
 

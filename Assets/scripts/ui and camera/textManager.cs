@@ -7,6 +7,10 @@ using UnityEngine.UI;
 
 public class textManager : MonoBehaviour
 {
+    AudioSource audio;
+    public AudioClip impactSmall;
+    public AudioClip impactBig;
+
     public Image fadeToBlack;
     public float fadeTime;
 
@@ -21,6 +25,8 @@ public class textManager : MonoBehaviour
     float textColor;
 
     int textIndex = 0;
+
+    public bool flicker;
 
     float textAppearTimer;
     public float textAppearTimerBase;
@@ -39,6 +45,8 @@ public class textManager : MonoBehaviour
 
     void Start()
     {
+        audio = GetComponent<AudioSource>();
+
         textColorGoal = Random.Range(textColorMin, textColorMax);
         flickerSpeed = Random.Range(flickerSpeedMin, flickerSpeedMax);
         textColor = 1;
@@ -68,6 +76,14 @@ public class textManager : MonoBehaviour
             texts[textIndex].gameObject.SetActive(true);
             textAppearTimer = textAppearTimerBase;
             textIndex += 1;
+            if (textIndex < texts.Length)
+            {
+                audio.PlayOneShot(impactSmall);
+            }
+            else
+            {
+                audio.PlayOneShot(impactBig);
+            }
         }
 
         if (textIndex >= texts.Length)
@@ -112,9 +128,12 @@ public class textManager : MonoBehaviour
 
         textColor = Mathf.Clamp(textColor, 0, 1);
 
-        foreach (TextMeshProUGUI text in texts)
+        if (flicker)
         {
-            text.color = new Color32(((byte) (textColor * 255)), (byte)(textColor * 255), (byte)(textColor * 255), 255);
+            foreach (TextMeshProUGUI text in texts)
+            {
+                text.color = new Color32(((byte)(textColor * 255)), (byte)(textColor * 255), (byte)(textColor * 255), 255);
+            }
         }
     }
 }

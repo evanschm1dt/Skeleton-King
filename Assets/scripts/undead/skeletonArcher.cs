@@ -46,7 +46,14 @@ public class skeletonArcher : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        //Debug.Log(shotInterval);
+
 		Sight ();
+
+        if (gameObject.GetComponent<undeadMain>().travelling == true && shotInterval < .5f)
+        {
+            shotInterval = .5f;
+        }
 
         if (aimTarget != null && aimTarget.GetComponent<enemyHealthManager>() && aimTarget.GetComponent<enemyHealthManager>().enemyHealth <= 0)
         {
@@ -141,10 +148,15 @@ public class skeletonArcher : MonoBehaviour {
 
 				if (hit.collider.gameObject.CompareTag("enemy")) {
 					if (aimTarget == null) {
-						aimTarget = hit.collider.gameObject;
-						if (shotInterval < .5f) {
-							shotInterval = .5f;
-						}
+                        if (shotInterval < .5f)
+                        {
+                            shotInterval = .5f;
+                        }
+                        aimTarget = hit.collider.gameObject;
+                        Vector2 aimDirection = aimTarget.transform.position - transform.position;
+                        float aimAngle = (Mathf.Atan2(-aimDirection.y, -aimDirection.x) * Mathf.Rad2Deg) - 90;
+                        myCurrentAngle = aimAngle;
+						
 					} else if (aimTarget == hit.collider.gameObject) {
 						if (!enemyInSight) {
 							enemyInSight = true;

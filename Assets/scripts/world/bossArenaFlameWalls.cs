@@ -6,6 +6,7 @@ public class bossArenaFlameWalls : MonoBehaviour
 {
 
     public GameObject boss;
+    public GameObject activate;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,10 @@ public class bossArenaFlameWalls : MonoBehaviour
             {
                 
                 gameObject.GetComponent<flameWall>().active = true;
+                if (activate != null)
+                {
+                    activate.SetActive(true);
+                }
             }
         }
 

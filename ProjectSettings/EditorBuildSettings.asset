@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/scene1.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: Assets/Scenes/filmingRoom.unity
+    guid: 26b9d7322c7afc145a829ac9a2693b84
+  - enabled: 0
+    path: Assets/Scenes/textScene.unity
+    guid: 0e721810f8fd32243801b2571291e553
+  - enabled: 1
+    path: Assets/Scenes/titleScreen.unity
+    guid: 769ab3fab916b2f42b806485bbc01091
+  - enabled: 0
+    path: Assets/Scenes/demoLevel.unity
+    guid: 60a0156a4be77c643b27b2dd8998311c
+  - enabled: 1
+    path: Assets/Scenes/oubliette.unity
+    guid: 80c98ec9f9fcda24fb162b41792d2273
+  - enabled: 1
+    path: Assets/Scenes/tutorial.unity
+    guid: 3e63c24b305870541a196150a3dd67ee
+  - enabled: 1
+    path: Assets/Scenes/cell.unity
+    guid: c5dc5974fb787ce4985a3ef695be5fef
+  - enabled: 1
+    path: Assets/Scenes/crucible.unity
+    guid: c9bbcc8948054de49b1ff25c86dc734a
+  - enabled: 1
+    path: Assets/Scenes/cellIntro.unity
+    guid: a794f0bfcc4e0b94e9ce7621a80e5e05
+  - enabled: 1
+    path: Assets/Scenes/crucibleIntro.unity
+    guid: 475fc1f13135dcf4c8cd433a51a56c70
+  - enabled: 1
+    path: Assets/Scenes/oublietteIntro.unity
+    guid: 16f862a5add7df34a856857007d060cb
+  m_configObjects: {}

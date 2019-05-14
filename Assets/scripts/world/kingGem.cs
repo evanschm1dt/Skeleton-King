@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class kingGem : MonoBehaviour
 {
+    AudioSource audio;
+    
+    public AudioClip buildup;
+    public AudioClip awaken;
+    bool playedBuildup;
 
     public GameObject necromancer;
 
@@ -23,15 +28,20 @@ public class kingGem : MonoBehaviour
     {
         animator = gameObject.GetComponent<Animator>();
         lightIntensity = gemLight.intensity;
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (dormant && Input.anyKey)
+        if (dormant)
         {
-            animator.SetTrigger("awaken");
-            dormant = false;
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+            {
+                animator.SetTrigger("awaken");
+                audio.PlayOneShot(awaken);
+                dormant = false;
+            }
         }
     }
 
@@ -55,8 +65,18 @@ public class kingGem : MonoBehaviour
         gemLight.intensity = lightIntensity;
     }
 
+    public void PlayBuildup()
+    {
+        if (!playedBuildup)
+        {
+            audio.PlayOneShot(buildup);
+            playedBuildup = true;
+        }
+    }
+
     public void GemExplode()
     {
+        audio.Stop();
         GameObject myExplosion = Instantiate(explosion, new Vector3(transform.position.x, transform.position.y, -2), Quaternion.identity);
         Destroy(myExplosion, 5f);
         gemLight.intensity = lightIntensity - 2.5f;

@@ -26,6 +26,7 @@ public class arrowScript : MonoBehaviour {
 			//Instantiate (hitNumbers [arrowDamage], other.transform.position, Quaternion.identity);
 		}
 		if (other.gameObject.layer != 11) {
+            gameObject.GetComponent<projectileAudio>().SpawnEndSound();
 			Destroy (gameObject);
 		} 
 	}

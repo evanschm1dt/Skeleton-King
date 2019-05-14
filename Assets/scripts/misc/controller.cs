@@ -105,11 +105,11 @@ public class controller : MonoBehaviour {
 		if (youWin) {
 			winText.SetActive (true);
 		}
-
+        /*
 		if (Input.GetKeyDown (KeyCode.R)) {
 			Scene loadedLevel = SceneManager.GetActiveScene();
 			SceneManager.LoadScene (loadedLevel.buildIndex);
-		}
+		}*/
 
 		//------------------------------- LEFT CLICK STUFF -----------------------------------------
 
@@ -302,6 +302,12 @@ public class controller : MonoBehaviour {
     public void ReturnToMain()
     {
         SceneManager.LoadScene("titleScreen");
+    }
+
+    public void RestartScene()
+    {
+        Scene loadedLevel = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(loadedLevel.buildIndex);
     }
 
 	public void EmptySkeleList (){

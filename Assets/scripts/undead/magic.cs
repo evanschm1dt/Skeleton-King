@@ -120,6 +120,7 @@ public class magic : MonoBehaviour {
 		if (Input.GetKeyDown (raiseDeadKey) && canRaise) {
 			//RaiseDead ();
             particles.Emit(raiseDeadParticles);
+            gameObject.GetComponentInChildren<audioPlayer>().PlayRaiseDead();
             canRaise = false;
         }
 

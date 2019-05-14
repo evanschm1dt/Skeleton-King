@@ -28,9 +28,21 @@ public class flameWall : MonoBehaviour
 
     public float lightSpeed;
 
+    bool audioMaker;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
+        if (gameObject.GetComponent<flameAudio>())
+        {
+            audioMaker = true;
+        }else
+        {
+            audioMaker = false;
+        }
+
         if (!active)
         {
             firing = false;
@@ -69,7 +81,10 @@ public class flameWall : MonoBehaviour
                     offTime = offTimeBase;
                     firing = true;
                     particles.Play();
-
+                    if (audioMaker)
+                    {
+                        gameObject.GetComponent<flameAudio>().StartFire();
+                    }
                 }
             }
 
@@ -87,6 +102,10 @@ public class flameWall : MonoBehaviour
                     onTime = onTimeBase;
                     firing = false;
                     particles.Stop();
+                    if (audioMaker)
+                    {
+                        gameObject.GetComponent<flameAudio>().StopFire();
+                    }
 
                 }
             }

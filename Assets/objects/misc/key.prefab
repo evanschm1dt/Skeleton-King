@@ -116,7 +116,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
 --- !u!114 &957321600503179547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,3 +130,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 0}
+  pickup: {fileID: 8300000, guid: d60e58380b8cae34eb6176b7c7935c9e, type: 3}

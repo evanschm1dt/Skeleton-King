@@ -62,7 +62,7 @@ public class playerProjectile : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.gameObject.CompareTag ("enemy")) {
 			other.GetComponent<enemyHealthManager> ().enemyHealth -= 1;
-			Instantiate (hitNumber, other.transform.position, Quaternion.identity);
+			//Instantiate (hitNumber, other.transform.position, Quaternion.identity);
 
             if (other.GetComponent<archerMain>())
             {
@@ -90,6 +90,7 @@ public class playerProjectile : MonoBehaviour {
              particles.gameObject.transform.parent = null;
              Destroy(particles.gameObject, 1f);
              Destroy(gameObject);*/
+            gameObject.GetComponent<projectileAudio>().SpawnEndSound();
             DestroyWithParticles();
 		} 
 	}
@@ -101,6 +102,7 @@ public class playerProjectile : MonoBehaviour {
 
    public void DestroyWithParticles()
     {
+        
         particles.Emit(particleNumber);
         particles.Stop();
         particles.gameObject.transform.parent = null;

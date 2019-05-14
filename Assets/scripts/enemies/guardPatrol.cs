@@ -242,13 +242,15 @@ public class guardPatrol : MonoBehaviour {
 					fightMode = true;
 					chaseMode = false;
 				}
-			}
 
-            if (!hasNewPath || foe.transform.position != recordedFoePos)
-            {
-                SetDestination();
-                hasNewPath = true;
+                if (!hasNewPath || foe.transform.position != recordedFoePos)
+                {
+                    SetDestination();
+                    hasNewPath = true;
+                }
             }
+
+            
 
         }
 

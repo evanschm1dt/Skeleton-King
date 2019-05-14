@@ -2,16 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.UI;
 
 public class keyManager : MonoBehaviour {
 
 	public GameObject door;
 
+    public GameObject keyCanvas;
+
 	public int keysToFind;
+    [HideInInspector]
+    public int keysFound;
+
+    int keysTotal;
 
 	bool doorDestroyed = false;
 
     BoxCollider2D doorZone;
+
+    public Text keyText;
 
     //Animator doorAnim;
 
@@ -19,6 +28,11 @@ public class keyManager : MonoBehaviour {
 	void Start () {
         //doorAnim = door.GetComponent<Animator>();
         doorZone = gameObject.GetComponent<BoxCollider2D>();
+        keysTotal = keysToFind;
+
+        RewriteText();
+
+        keyCanvas.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -33,10 +47,17 @@ public class keyManager : MonoBehaviour {
 		}*/
 	}
 
+    public void RewriteText()
+    {
+        keyText.text = keysFound + "/" + keysTotal;
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.name == "necromancer")
         {
+            keyCanvas.SetActive(true);
+            RewriteText();
             if (keysToFind <= 0)
             {
                 if (!doorDestroyed)
@@ -53,6 +74,14 @@ public class keyManager : MonoBehaviour {
                     doorDestroyed = true;
                 }
             }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.name == "necromancer")
+        {
+            keyCanvas.SetActive(false);
         }
     }
 }

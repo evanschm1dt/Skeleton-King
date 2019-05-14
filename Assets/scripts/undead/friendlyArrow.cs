@@ -61,7 +61,8 @@ public class friendlyArrow : MonoBehaviour {
 			//Instantiate (hitNumber, other.transform.position, Quaternion.identity);
 		}
 		if (other.gameObject.layer != 11) {
-			Destroy (gameObject);
+            gameObject.GetComponent<projectileAudio>().SpawnEndSound();
+            Destroy (gameObject);
 		} 
 	}
 }

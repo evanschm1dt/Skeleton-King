@@ -159,8 +159,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 6
+  enemyHealthMax: 0
   corpse: {fileID: 1671575372774986, guid: 35e2ef70881ff3142b68b090dc02f5dc, type: 3}
   isDead: 0
+  boss: 0
+  flameResistant: 0
+  consumeImmune: 0
+  unselect: 0
   damageTimerBase: 0.5
   healthBar: {fileID: 8745669424282168204}
 --- !u!50 &50420288286738168
@@ -241,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 0.57
+  radius: 0.5
   height: 0.01
   repathRate: 0.5
   canSearch: 0

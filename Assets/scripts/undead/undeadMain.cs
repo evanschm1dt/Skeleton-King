@@ -105,7 +105,10 @@ public class undeadMain : MonoBehaviour {
 
 
         if (debug) {
-			
+            if (closestEnemy != null)
+            {
+                Debug.Log(Vector3.Distance(transform.position, closestEnemy.transform.position));
+            }
 		}
 
 
@@ -260,7 +263,7 @@ public class undeadMain : MonoBehaviour {
 	}
 
 	public void SetTarget(){
-		//if (!projectileSkeleton || target == necromancer) {
+		if (!gameObject.GetComponent<skeletonArcher>() || target == necromancer) {
 			
 			pushBox.isKinematic = true;
 			var targetLocation = target.transform.position;
@@ -268,14 +271,14 @@ public class undeadMain : MonoBehaviour {
 			ai.destination = targetLocation;
 			ai.SearchPath ();
 			travelling = true;
-		//} else if (projectileSkeleton && target != necromancer){
+		} else if (gameObject.GetComponent<skeletonArcher>() && target != necromancer){
 			if (gameObject.GetComponent<skeletonArcher>()){
 				gameObject.GetComponent<skeletonArcher> ().aimTarget = target;
 			if (gameObject.GetComponent<skeletonArcher> ().halt) {
 					travelling = false;
 				}
 			}
-		//}
+		}
 	}
 
 	public void AnimateMovement (Vector2 direction) {

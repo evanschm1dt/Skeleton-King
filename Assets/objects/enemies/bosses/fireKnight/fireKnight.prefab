@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1103012263}
   - component: {fileID: 1103012262}
   - component: {fileID: 1103012264}
-  m_Layer: 10
+  m_Layer: 19
   m_Name: rangedParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3706,7 +3706,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 9015
+      m_Bits: 10039
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -4749,7 +4749,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6974299525306183921}
   - component: {fileID: 6974299525306183920}
-  m_Layer: 10
+  m_Layer: 19
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4826,7 +4826,7 @@ GameObject:
   - component: {fileID: 6919465542081487156}
   - component: {fileID: 8154668888458993614}
   - component: {fileID: 6974299526954167627}
-  m_Layer: 10
+  m_Layer: 19
   m_Name: fireKnight
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -4878,7 +4878,7 @@ MonoBehaviour:
   chaseTimer: 0
   foeInSight: 0
   chaseSightRange: 8
-  chaseEndWaitTimer: 0
+  chaseEndWaitTimer: 100
   waitingAfterChase: 0
   baseSpeed: 1.5
   chaseSpeed: 3.5
@@ -4951,7 +4951,7 @@ MonoBehaviour:
   version: 2
   radius: 0.6
   height: 2
-  repathRate: 0.5
+  repathRate: 0.1
   canSearch: 1
   canMove: 1
   maxSpeed: 1.5
@@ -4984,12 +4984,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae2da8655f447db4a9b9cdfd2092b58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 3
+  enemyHealth: 55
   enemyHealthMax: 0
   corpse: {fileID: 4273051744919255284, guid: 8e08b6637ad09ab4db7703ddc6880d89, type: 3}
   isDead: 0
   boss: 1
   flameResistant: 1
+  consumeImmune: 0
+  unselect: 0
   damageTimerBase: 0.5
   healthBar: {fileID: 0}
 --- !u!114 &7015740067069312144
@@ -5017,7 +5019,7 @@ MonoBehaviour:
   collidesWith: -1
   wallAvoidForce: 1
   wallAvoidFalloff: 1
-  priority: 0.99
+  priority: 1
   debug: 0
 --- !u!50 &6951889209803752214
 Rigidbody2D:
@@ -5097,7 +5099,10 @@ GameObject:
   - component: {fileID: 1199510643234339}
   - component: {fileID: 1199510643234340}
   - component: {fileID: 1199510643234338}
-  m_Layer: 10
+  - component: {fileID: 963319447}
+  - component: {fileID: 963319448}
+  - component: {fileID: 963319454}
+  m_Layer: 19
   m_Name: fireKnightSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8920,7 +8925,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 9015
+      m_Bits: 10039
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -9903,3 +9908,148 @@ MonoBehaviour:
   sprayRotationSpeed: 3
   specialAttackDistance: 1.5
   fighting: 0
+--- !u!82 &963319447
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6975498051192503186}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
+  m_Pitch: 0.5
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &963319448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6975498051192503186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d26f2829bd86ffa4cb49a771a8ab1271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 40
+  footsteps:
+  - {fileID: 8300000, guid: 7aa8afbbb59268545a11420f8ac4586d, type: 3}
+  - {fileID: 8300000, guid: f984ebe4a8818b646a9d4b04c7754fc5, type: 3}
+  - {fileID: 8300000, guid: 3dbbf42b42daf5443a68f742cbcb4758, type: 3}
+  - {fileID: 8300000, guid: 0a887b26035f277449aac2b1f4ba4240, type: 3}
+  attacks:
+  - {fileID: 8300000, guid: dab1a1a2dc43e7c4b81417eb50b2398e, type: 3}
+  - {fileID: 8300000, guid: 05414ad73fa6f9940b8480dd9c2d4fa9, type: 3}
+  - {fileID: 8300000, guid: 7971cf167cfe73d4dba6db89b3465f6f, type: 3}
+  - {fileID: 8300000, guid: a2434b5a2db677b468fd932a92aa5096, type: 3}
+  - {fileID: 8300000, guid: 5e74cb3d1b6186a42be9bce9ccea9b37, type: 3}
+  - {fileID: 8300000, guid: 0597b669fd134974ebebd4dbc00481d2, type: 3}
+  - {fileID: 8300000, guid: 56d5494a05a4f8047bebe7f895603e18, type: 3}
+  - {fileID: 8300000, guid: ac09c8ce378647f42ac52ab230f74619, type: 3}
+  raiseDead: {fileID: 0}
+--- !u!114 &963319454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6975498051192503186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21de9443eec0a854c8f7130cbbd6cf54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burstClips:
+  - {fileID: 8300000, guid: a1e57323c7e45ac4e80d306e65ca3cbd, type: 3}
+  - {fileID: 8300000, guid: 9f317d9351760b54788efb4e99288777, type: 3}
+  - {fileID: 8300000, guid: 2ec44d502d5fe124780aa0564d6686d0, type: 3}
+  sprayClips:
+  - {fileID: 8300000, guid: e05809190130bda4d822a088c7409f23, type: 3}
+  - {fileID: 8300000, guid: 66d69e261cc99384ba4c8c68124dbdab, type: 3}
+  - {fileID: 8300000, guid: a1684b5300c015443bf29c83b1dee685, type: 3}
+  awaken: {fileID: 8300000, guid: 0f8f397f330efb24a94e25e470f005bb, type: 3}

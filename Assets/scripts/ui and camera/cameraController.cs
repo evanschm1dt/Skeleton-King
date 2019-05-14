@@ -13,6 +13,9 @@ public class cameraController : MonoBehaviour {
 	float mouseMovementSpeed = 30f;
 
 	public float sizeChanger = 5;
+    float zoomSpeed = .1f;
+
+    public bool extraControls;
 
 	 Vector3 camPos;
 
@@ -82,6 +85,33 @@ public class cameraController : MonoBehaviour {
 		}
 
 		*/
+        if (extraControls)
+        {
+            mainCam.orthographicSize = sizeChanger;
+
+            if (Input.GetKey(KeyCode.K))
+            {
+                sizeChanger += zoomSpeed;
+            }
+            if (Input.GetKey(KeyCode.L))
+            {
+                sizeChanger -= zoomSpeed;
+            }
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                zoomSpeed += .01f;
+            }
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                zoomSpeed -= .01f;
+            }
+            if (Input.GetKey(KeyCode.J))
+            {
+                sizeChanger = 5;
+            }
+        }
+
+
         if (!noNecromancer)
         {
             if (necromancer != null && necromancer.GetComponent<necromancerMain>().scrying)

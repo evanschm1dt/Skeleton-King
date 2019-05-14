@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - skeleton
+  - undead
+  - enemy
+  - corpse
+  - necromancer
+  - healthText
+  - backdrop
+  - undeadProjectile
+  - door
+  - undeadFeet
+  - corpseParticleCollider
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - block
+  - undead
+  - enemy
+  - halfWalls
+  - enemyProjectiles
+  - undeadProjectiles
+  - floor
+  - corpses
+  - kingOnly
+  - corpseParticleCollider
+  - invisible
+  - boss
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: skeletons
+    uniqueID: 603838543
+    locked: 0
